@@ -1,125 +1,116 @@
-\clearpage
-\chapter{Etude Préalable}
-\label{chap:premierchapitre}
+\chapter{Étude préalable}
+\label{chap:etude}
 
-\fancyhead{} % clear all header fields
+\section{Introduction}
 
-\fancyhead[RO,LE]{\textbf{Etude Préalable}}
+Ce premier chapitre présente le cadre général du projet Digital Village. Nous commencerons par présenter le contexte de la Nuit de l'Info 2025 et le défi NIRD, puis nous analyserons les solutions existantes avant de présenter notre approche et la méthodologie adoptée.
 
-\fancyfoot{} % clear all footer fields
-\clearpage
-\fancyfoot[LE,RO]{\thepage}
+\section{Présentation du contexte}
 
-%\minitoc
+\subsection{La Nuit de l'Info 2025}
 
-\section*{Introduction} 
-\addcontentsline{toc}{section}{Introduction}
+La Nuit de l'Info est un défi national qui rassemble chaque année des milliers d'étudiants, enseignants et développeurs autour de défis informatiques. L'édition 2025, qui s'est déroulée du jeudi 4 décembre à 16h34 au vendredi 5 décembre à 8h04, a proposé plusieurs sujets dont celui du collectif NIRD.
 
-Dans ce chapitre nous commençons par présenter l'organisme d'accueil, une étude comparative entre plusieurs applications existantes et présenter ensuite notre  sujet du projet et son cahier de charge ainsi que la méthodologie adopté afin de réaliser ce travail.
+\subsection{Le collectif NIRD}
 
-\section{Présentation de l'organisme d'accueil }
+Le collectif NIRD (Numérique Inclusif, Responsable et Durable) est une initiative portée par des enseignants et professionnels du numérique. Leur objectif est de promouvoir des pratiques numériques respectueuses de l'environnement, inclusives et souveraines dans le milieu éducatif.
 
+\subsection{Le défi proposé}
 
-Fondée depuis 201x, XXXXX est un acteur régional dans le secteur de l'IT, spécialisé dans les solutions d'entreprise, les applications mobiles, les solutions e-commerce, les applications industrielles embarquées, les objets connectés, les réseaux sociaux et les systèmes des gestions de contenu , fournissant un savoir-faire concurrentiel, des services et des solutions sur mesure à ses clients en Afrique du Nord, en Europe et au Moyen-Orient via ses différentes entités basées en Tunisie, France, Algérie. XXXXXX repose sur des équipes expérimentées, innovantes et multilingues avec des expertises techniques diversifiées. Les équipes XXXXXX ont forgé leur expertise dans la mise en place de stratégies IT performantes afin de réussir les différents types de projets de leurs clients. XXXXXX base sa relation client sur l'écoute et la réactivité dans le but de correspondre ses solutions aux besoins de ses clients. 
-\\
-\\
-
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=5cm ]{images/anyit.jpeg}
-  \caption{Logo de l’entreprise AnyInIT}
-  \label{fig:logo-sqli}
-\end{figure}
-
-\subsection{Services de l'entreprise}
-
-\subsection{Services de l'entreprise}
-\section{Projet }
-\section{Etude de l’existant}
-Cette section vise à étudier les solutions existantes. Cette recherche permet de souligner les avantages et les inconvénients de chaque solution. Nous présentons ensuite notre solution. 
-
-Notre travail va être destiné au xxxxxx, c'est dans ce cadre que nous allons étudier les applications disponibles xxxxxx. On va distinguer leurs avantages et points faibles.
-
-
-\subsection{Solutions existantes }
-\medskip
+Le sujet intitulé \textit{"Le Village Numérique Résistant"} nous demandait de créer une plateforme pour :
 \begin{itemize}
-\item[$\bullet$] \textbf{solution xxxx} : xxx est un serveur de stockage d'objets open source conçu pour stocker et gérer des données non structurées, notamment des fichiers, des photos, des vidéos, etc. Il est compatible avec l'API Amazon S3, ce qui facilite l'intégration des applications à xxxxx en tant que backend de stockage alternatif. Les différents logiciels de Minio sont open source, téléchargeables et utilisables gratuitement. L’éditeur, Minio génère ses revenus via des prestations de support auprès de grands clients
-MinIO offre une Intégration Limitée à l'écosystème, Configuration Complexes et une Surveillance et Gestion Exigeantes.
-
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=3cm,height=3cm]{images/logosony.png}
-  \caption{Logo de la solution 1}
-  \label{fig:logo-sqli}
-\end{figure}
-
-\begin{itemize}
-\item[$\bullet$] \textbf{solution zzzzzz} : zzzzzzzz est un serveur de stockage d'objets open source conçu pour stocker et gérer des données non structurées, notamment des fichiers, des photos, des vidéos, etc. Il est compatible avec l'API Amazon S3, ce qui facilite l'intégration des applications à xxxxx en tant que backend de stockage alternatif. Les différents logiciels de Minio sont open source, téléchargeables et utilisables gratuitement. L’éditeur, Minio génère ses revenus via des prestations de support auprès de grands clients
-MinIO offre une Intégration Limitée à l'écosystème, Configuration Complexes et une Surveillance et Gestion Exigeantes.
-
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=3cm,height=3cm]{images/logosony.png}
-  \caption{Logo de la solution 2.}
-  \label{fig:logo-sqli}
-\end{figure}
-\medskip
-\\
-
-\item[$\bullet$] \textbf{ solution yyyy :} yyyyyy appartient à la catégorie des solutions de stockage d'objets distribuées et offre une gestion des données à grande échelle. La technologie d’yyyyyy  déjà séduit plus d’une quarantaine de clients dans le monde, parmi lesquels Dailymotion. Elle repose sur une plate-forme distribuée avec un socle open source travaillant avec les API Amazon S3 et OpenStack Swift. La plate-forme d’OpenIO assure le chiffrement et la compression des données mais pas la dé duplication. L'inconvénient de OpenIO, qu'il offre une complexité de configuration et un support limité par rapport aux options commerciales.
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=3cm,height=3cm]{images/logosony.png}
-  \caption{Logo de la solution 3.}
-  \label{fig:logo-sqli}
-\end{figure}
+    \item Aider les établissements scolaires à réduire leurs dépendances numériques
+    \item Promouvoir les alternatives libres (Linux, LibreOffice, etc.)
+    \item Sensibiliser à la sobriété numérique
+    \item Accompagner la transition vers un numérique souverain
 \end{itemize}
 
-\subsection{Critique de l'existant }
-xxx est un serveur de stockage d'objets open source conçu pour stocker et gérer des données non structurées, notamment des fichiers, des photos, des vidéos, etc. Il est compatible avec l'API Amazon S3, ce qui facilite 
+\section{Analyse de l'existant}
+
+\subsection{Solutions actuelles}
+
+Actuellement, plusieurs ressources existent pour promouvoir le logiciel libre dans l'éducation :
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Solution} & \textbf{Description} \\
+\hline
+Site NIRD & Site officiel présentant la démarche (statique) \\
+\hline
+Primtux & Distribution Linux pour les écoles primaires \\
+\hline
+Framasoft & Association promouvant les logiciels libres \\
+\hline
+APRIL & Association pour la promotion du logiciel libre \\
+\hline
+\end{tabular}
+\caption{Solutions existantes}
+\end{table}
+
+\subsection{Limites identifiées}
+
+Les solutions actuelles présentent plusieurs limites :
+\begin{itemize}
+    \item Manque d'interactivité et d'engagement
+    \item Absence de parcours pédagogique structuré
+    \item Pas de système de progression ou de gamification
+    \item Contenu parfois trop technique pour les débutants
+    \item Pas de gestion des différents profils utilisateurs
+\end{itemize}
+
 \section{Solution proposée}
-Le projet vise à ....... some textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome textesome .
-\\
-ici decrire votre projet et ses avantages .\\
 
+\subsection{Présentation de Digital Village}
 
-\subsection{Objectifs de la solution}
-Le projet vise à atteindre les objectifs suivants :
+Notre solution, \textbf{Digital Village}, est une plateforme web moderne et interactive qui répond aux limites identifiées :
+
 \begin{itemize}
-\item[$\bullet$] Permettre au personnel administratif de numériser facilement et rapidement les documents papier en fichiers numériques.
-\medskip
-\item[$\bullet$]  Mettre en place une interface utilisateur conviviale et intuitive pour faciliter la numérisation en un seul clic.
-\medskip
-\item[$\bullet$]  Assurer la sécurité des documents numérisés en mettant en place des protocoles de sécurité avancés.
-\medskip
-\item[$\bullet$] Optimiser l'utilisation de l'espace de stockage physique grâce à la conversion des fichiers papier en fichiers numériques.
-\medskip
-\item[$\bullet$] Faciliter l'accès aux documents numérisés depuis n'importe quel appareil connecté à Internet.
+    \item \textbf{Expérience gamifiée} : Système de points (XP), niveaux, badges et streaks
+    \item \textbf{Parcours structuré} : 5 étapes progressives de la démarche NIRD
+    \item \textbf{Quiz interactif} : Génération de questions par IA sur 8 thèmes
+    \item \textbf{Ressources multimédias} : Vidéos, PDF, tutoriels intégrés
+    \item \textbf{Multi-profils} : Élève, Enseignant, Administrateur, Public
 \end{itemize}
 
-\subsection{Description du projet}
-Notre projet consiste a mettre en place une plateforme web  pour les personnels administratifs afin de digitaliser leurs documents de manière simple et rapide. L'objectif principal est de développer une solution interactive avec un scanner, permettant aux utilisateurs d'héberger  les documents dans le cloud en un seul clic.
-\medskip
+\subsection{Fonctionnalités principales}
 
-\section{Processus de développement}
-\subsection{Méthodologie de dévéloppement}
-Etant donné que le temps de réalisation de ce projet était relativement serré, nous avons choisi d'utiliser la méthodologie agile afin de mieux organiser le temps et de continuer à produire des incréments à chaque sprint. Les méthodologies agiles sont devenues très populaires dans le domaine du développement de logiciels et de gestion de projets, car elles apportent de nombreux avantages par rapport aux méthodes traditionnelles de gestion de projet.
+\begin{enumerate}
+    \item \textbf{Page d'accueil} : Présentation attractive avec animations
+    \item \textbf{Parcours NIRD} : 5 étapes interactives avec progression
+    \item \textbf{Quiz IA} : 80+ questions générées dynamiquement
+    \item \textbf{Bibliothèque} : Ressources documentaires et vidéos
+    \item \textbf{Dashboard} : Tableau de bord personnalisé
+    \item \textbf{Authentification} : Inscription/connexion sécurisée
+\end{enumerate}
 
-\subsection{Présentation de la méthode SCRUM}
-La méthode Agile Scrum est un cadre de gestion de projet très populaire et largement utilisé dans le développement de logiciels et d'autres domaines de gestion de projets. L'utilité de la méthode Agile Scrum réside dans plusieurs aspects clés qui permettent d'améliorer l'efficacité et la flexibilité des équipes de développement.. La figure \ref{fig:scrum} représente la gestion de projet avec la methode scrum.
-\\
-\\
+\section{Méthodologie adoptée}
 
+\subsection{Approche Agile}
 
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=12cm]{images/agile-scrum.png}
-  \caption{Gestion de projet méthode agile scrum}
-  \label{fig:scrum}
-\end{figure}
+Compte tenu du temps limité (une nuit), nous avons adopté une approche Agile simplifiée avec des sprints courts :
 
-\section*{Conclusion}
-\addcontentsline{toc}{section}{Conclusion}
+\begin{itemize}
+    \item \textbf{Sprint 1 (2h)} : Setup du projet et page d'accueil
+    \item \textbf{Sprint 2 (3h)} : Authentification et dashboard
+    \item \textbf{Sprint 3 (3h)} : Quiz et ressources
+    \item \textbf{Sprint 4 (2h)} : Backend et API
+    \item \textbf{Sprint 5 (2h)} : Tests et déploiement
+\end{itemize}
 
-Ce chapitre a été consacré pour avoir une vue analytique du projet. Nous avons commence par présenter l'organisme d'accueil ensuite nous avons expliqué le processus actuel de stockage des fichiers administratifs tout en donnant un aperçu sur les solutions existantes qui ont initialement inspiré ce projet.  Nous avons décrit dans la section suivante notre solution et ses objectifs tout en décrivant la méthodologie adopté lors du développement de la solution. 
+\subsection{Outils de collaboration}
+
+\begin{itemize}
+    \item \textbf{GitHub} : Gestion du code source
+    \item \textbf{Discord} : Communication en temps réel
+    \item \textbf{Figma} : Maquettes UI/UX
+    \item \textbf{VS Code} : Environnement de développement
+\end{itemize}
+
+\section{Conclusion}
+
+Ce chapitre a permis de présenter le contexte du projet, d'analyser les solutions existantes et de définir notre approche. Le chapitre suivant détaillera l'analyse des besoins et les spécifications fonctionnelles de notre solution.
+
+\clearpage

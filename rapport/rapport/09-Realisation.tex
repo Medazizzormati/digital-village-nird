@@ -1,196 +1,282 @@
 \chapter{Réalisation}
+\label{chap:realisation}
 
-\label{sec:realisation}
-\fancyhead{} % clear all header fields
+\section{Introduction}
 
-\fancyhead[R]{\textbf{Réalisation}}
+Ce chapitre présente la réalisation concrète du projet Digital Village. Nous détaillerons les technologies utilisées, l'environnement de développement, puis nous présenterons les principales interfaces de l'application.
 
-\fancyfoot{} % clear all footer fields
+\section{Technologies utilisées}
+
+\subsection{Frontend}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Technologie} & \textbf{Version} & \textbf{Utilisation} \\
+\hline
+Next.js & 15.0 & Framework React avec SSR \\
+\hline
+React & 19.2 & Bibliothèque UI \\
+\hline
+TypeScript & 5.x & Typage statique \\
+\hline
+Tailwind CSS & 4.1 & Framework CSS utility-first \\
+\hline
+Radix UI & Latest & Composants accessibles \\
+\hline
+Lucide React & 0.454 & Icônes SVG \\
+\hline
+\end{tabular}
+\caption{Technologies Frontend}
+\end{table}
+
+\subsection{Backend}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Technologie} & \textbf{Version} & \textbf{Utilisation} \\
+\hline
+Node.js & 20.x & Runtime JavaScript \\
+\hline
+Express & 4.19 & Framework web \\
+\hline
+MongoDB & 8.x & Base de données NoSQL \\
+\hline
+Mongoose & 8.5 & ODM pour MongoDB \\
+\hline
+JWT & 9.0 & Authentification \\
+\hline
+Bcrypt & 2.4 & Hachage des mots de passe \\
+\hline
+\end{tabular}
+\caption{Technologies Backend}
+\end{table}
+
+\subsection{Outils de développement}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Outil} & \textbf{Utilisation} \\
+\hline
+Visual Studio Code & Éditeur de code principal \\
+\hline
+Git / GitHub & Gestion de versions \\
+\hline
+Vercel & Déploiement frontend \\
+\hline
+Postman & Tests API \\
+\hline
+npm & Gestionnaire de paquets \\
+\hline
+\end{tabular}
+\caption{Outils de développement}
+\end{table}
+
+\section{Structure du projet}
+
+\subsection{Arborescence Frontend}
+
+\begin{verbatim}
+digital-village-nird/
+├── app/                    # Pages Next.js (App Router)
+│   ├── page.tsx           # Page d'accueil
+│   ├── login/             # Page de connexion
+│   ├── signup/            # Page d'inscription
+│   ├── dashboard/         # Tableau de bord
+│   ├── quiz/              # Quiz classique
+│   ├── ai-quiz/           # Quiz IA
+│   ├── resources/         # Ressources
+│   └── api/               # Routes API Next.js
+├── components/            # Composants réutilisables
+│   ├── navigation.tsx     # Barre de navigation
+│   ├── footer.tsx         # Pied de page
+│   ├── media-card.tsx     # Carte média
+│   └── video-modal.tsx    # Modal vidéo
+├── lib/                   # Utilitaires
+│   └── api.ts            # Client API
+└── public/               # Assets statiques
+\end{verbatim}
+
+\subsection{Arborescence Backend}
+
+\begin{verbatim}
+backend/
+├── src/
+│   ├── server.js          # Point d'entrée
+│   ├── config/
+│   │   └── db.js         # Connexion MongoDB
+│   ├── models/
+│   │   ├── User.js       # Modèle utilisateur
+│   │   └── Class.js      # Modèle classe
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── progressController.js
+│   │   ├── teacherController.js
+│   │   └── adminController.js
+│   ├── middleware/
+│   │   └── auth.js       # Middleware JWT
+│   └── routes/
+│       ├── auth.js
+│       ├── progress.js
+│       ├── teacher.js
+│       └── admin.js
+└── package.json
+\end{verbatim}
+
+\section{Interfaces de l'application}
+
+\subsection{Page d'accueil}
+
+La page d'accueil présente Digital Village avec un design gaming professionnel :
+\begin{itemize}
+    \item Hero section avec animation de grille
+    \item Badge "Nuit de l'Info 2025"
+    \item Titre bilingue (Arabe/Français)
+    \item Boutons CTA (Commencer, Quiz)
+    \item Statistiques animées (5 étapes, 50+ questions)
+    \item Présentation des 3 piliers NIRD
+\end{itemize}
+
+\subsection{Pages d'authentification}
+
+Les pages de connexion et d'inscription présentent un design split-screen moderne :
+\begin{itemize}
+    \item Panneau gauche : Branding et informations
+    \item Panneau droit : Formulaire
+    \item Toggle Mode API / Mode Démo
+    \item Sélection de rôle avec icônes (inscription)
+    \item Validation en temps réel
+    \item Effets visuels (glow, gradients)
+\end{itemize}
+
+\subsection{Dashboard utilisateur}
+
+Le tableau de bord affiche :
+\begin{itemize}
+    \item Avatar dynamique avec couleur selon le rôle
+    \item Niveau et barre de progression XP
+    \item Compteur de streak
+    \item 4 cartes de statistiques animées
+    \item Progression en 5 étapes
+    \item 6 badges avec niveaux de rareté
+    \item Actions rapides
+    \item Activité récente
+\end{itemize}
+
+\subsection{Quiz IA}
+
+La page de quiz interactif propose :
+\begin{itemize}
+    \item 8 sujets suggérés avec icônes
+    \item Sélection de difficulté (Facile, Moyen, Difficile)
+    \item Choix du nombre de questions (1-10)
+    \item Génération par OpenAI ou fallback local
+    \item Affichage progressif des questions
+    \item Feedback immédiat avec explications
+    \item Score final avec encouragements
+\end{itemize}
+
+\subsection{Page Ressources}
+
+La bibliothèque de ressources contient :
+\begin{itemize}
+    \item 3 catégories (Documentation, Vidéos, Outils)
+    \item Cartes de ressources avec tags
+    \item Lecteur vidéo intégré (modal)
+    \item Support YouTube, Vimeo, PeerTube
+    \item Section Médias avec couverture presse
+    \item Liens rapides thématiques
+\end{itemize}
+
+\section{Fonctionnalités clés implémentées}
+
+\subsection{Système de gamification}
+
+\begin{itemize}
+    \item \textbf{XP (Experience Points)} : Gagnés à chaque action (quiz, étapes)
+    \item \textbf{Niveaux} : Calculés selon la formule $niveau = \lfloor XP / 200 \rfloor + 1$
+    \item \textbf{Badges} : 6 badges avec raretés (Common, Rare, Epic, Legendary)
+    \item \textbf{Streaks} : Jours consécutifs de connexion
+\end{itemize}
+
+\subsection{Quiz intelligent}
+
+Le système de quiz utilise une approche hybride :
+\begin{enumerate}
+    \item Si OpenAI API configurée : génération dynamique
+    \item Sinon : utilisation de 80+ questions prédéfinies
+    \item 8 thèmes : Linux, Sécurité, Environnement, Logiciels Libres, Inclusion, Éducation, Vie Privée, Matériel
+\end{enumerate}
+
+\subsection{Lecteur vidéo intégré}
+
+Le composant VideoModal permet de lire des vidéos sans quitter le site :
+\begin{itemize}
+    \item Extraction automatique des IDs YouTube/Vimeo
+    \item Support PeerTube (Tube éducatif)
+    \item Fallback vers lien externe si non supporté
+    \item Fermeture par clic extérieur ou touche Échap
+\end{itemize}
+
+\section{Déploiement}
+
+\subsection{Frontend sur Vercel}
+
+Le déploiement sur Vercel est automatisé :
+\begin{enumerate}
+    \item Push sur la branche main de GitHub
+    \item Détection automatique par Vercel
+    \item Build Next.js
+    \item Déploiement sur CDN global
+\end{enumerate}
+
+\subsection{Variables d'environnement}
+
+\begin{verbatim}
+# Frontend (optionnel)
+OPENAI_API_KEY=sk-...
+
+# Backend
+PORT=5000
+JWT_SECRET=secret_key
+MONGO_URI=mongodb://localhost:27017/nird_db
+\end{verbatim}
+
+\section{Tests effectués}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{Gray}
+\textbf{Type} & \textbf{Élément testé} & \textbf{Résultat} \\
+\hline
+Fonctionnel & Inscription/Connexion & OK \\
+\hline
+Fonctionnel & Quiz IA (avec/sans API) & OK \\
+\hline
+Fonctionnel & Lecteur vidéo & OK \\
+\hline
+UI/UX & Responsive design & OK \\
+\hline
+Performance & Temps de chargement & < 2s \\
+\hline
+Sécurité & JWT Authentication & OK \\
+\hline
+\end{tabular}
+\caption{Résultats des tests}
+\end{table}
+
+\section{Conclusion}
+
+Ce chapitre a présenté la réalisation technique du projet Digital Village, les technologies utilisées et les principales interfaces. Le projet est fonctionnel et déployable sur Vercel.
+
 \clearpage
-\fancyfoot[LE,RO]{\thepage}
-
-
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
-
-Dans ce chapitre, nous plongeons au cœur de notre projet de digitalisation de fichiers à travers l'utilisation d'un scanner. Nous allons decouvrir  en détail les étapes méthodiques que nous avons suivies, depuis la sélection des technologies jusqu'à la mise en place du projet et le codage.
-
-
-\section{Environnement de travail }
-
-\medskip
-\begin{itemize}
-\item[$\bullet$] \textbf{Lucidchart :} 
-\\
-Lucidchart est une application Web de création de diagrammes qui permet aux utilisateurs de collaborer visuellement pour dessiner, réviser et partager des graphiques et des diagrammes, et d'améliorer les processus, les systèmes et les structures organisationnelles..
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=5cm,height=3cm]{images/lucidchart.png}
-    \caption{ Logo Lucidchart}
-  \label{fig:logo-sqli}
-\end{figure}
-\item[$\bullet$] \textbf{Figma :} 
-\\
-C'est un support de présentation et de collaboration. Il permet un travail d'équipe à distance, fluide, centralisé, en toute transparence et instantané. Web-designers, développeurs, clients ou testeurs peuvent intervenir en simultané sur le même fichier\cite{Figma}.
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=2cm, height=2cm] 
-     {images/figma.png}
-    \caption{ Logo Figma }
-\end{figure}
-\end{itemize}
-
-\subsubsection{4.1.2.2 Choix des frameworks :}
-\medskip
-\begin{itemize}
-\item[$\bullet$] \textbf{Next.js :} 
-\\
-Next.js est un framework de développement Web open-source créé par la société privée Vercel fournissant des applications Web basées sur React avec un rendu côté serveur et une génération de site Web statique.
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=4cm, height=2cm]{images/nextlogo.png}
-    \caption{ Logo Next.js}
-  \label{fig:logo-sqli}
-\end{figure}
-\item[$\bullet$] \textbf{Node.js :} 
-\\
-Node.js est un environnement de serveur open source multiplateforme qui peut s'exécuter sur Windows, Linux, Unix, macOS, etc. Node.js est un environnement d'exécution JavaScript back-end, s'exécute sur le moteur JavaScript V8 et exécute du code JavaScript en dehors d'un navigateur Web.
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=3cm, height=2cm]{images/nodeLogo.png}
-    \caption{ Logo Node.js }
-\end{figure}
-\end{itemize}
-\subsubsection{Outils de traitement de texte :}
-\begin{itemize}
-   \item[$\bullet$] \textbf{Overleaf :} 
-\\
-Overleaf est une plateforme en ligne gratuite permettant d'éditer du texte en LATEX sans aucun téléchargement d'application. En outre, elle offre la possibilité de rédiger des documents de manière collaborative\cite{Overleaf}. 
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=2cm, height=2cm] 
-     {images/overleaf.png}
-    \caption{ Logo Overleaf }
-\end{figure} 
-\end{itemize}
-\subsubsection{Base de données et bibliothèques :}
-\begin{itemize}
-   \item[$\bullet$] \textbf{MongoDB :} 
-\\
-MongoDB est un programme de base de données multiplateforme orienté document disponible en source. Classé comme programme de base de données NoSQL, MongoDB utilise des documents de type JSON avec des schémas facultatifs.
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=1.5cm, height=1.5cm]{images/mongoLogo.png}
-    \caption{ Logo MongoDB }
-\end{figure} 
- \item[$\bullet$] \textbf{scanner.js :} 
-\\
-C'est une bibliothèque open-source qui permet d'accéder aux fonctionnalités de numérisation à partir d'un navigateur web en utilisant des périphériques de numérisation compatibles. Avec scanner.js, vous pouvez créer des applications web qui permettent aux utilisateurs de numériser des documents directement depuis leur navigateur, sans avoir besoin d'installer des logiciels tiers.
-
-Cette bibliothèque utilise généralement des technologies telles que WebAssembly pour communiquer avec les scanners et les périphériques de numérisation. Elle offre une interface simple pour déclencher les numérisations, spécifier des paramètres comme la résolution et le format de sortie, et récupérer les données numérisées pour les manipuler dans votre application.
-\item[$\bullet$] \textbf{Visual Studio Code :} 
-\\
-Il permet de travailler avec différents langages. Il fournit des extensions pour le développement front, back et fullstack. Il supporte le git donc nous pouvons faire tout le travail git à partir de VS studio code\cite{VSCode}.
-
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=2cm, height=2cm] 
-     {images/vscode.png}
-    \caption{ Logo Visual Studio Code }
-    
-\end{figure} 
-\end{itemize}
-
-\section{Architecture adoptée}
-Dans le domaine informatique, l'architecture logique décrit les composants abstraits 
-(souvent les services et leurs clients) et les interactions entre eux. Dans ce contexte nous allons 
-commencer par présenter le modèle MVC\cite{Architecture}.
-\\
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=10cm, height=7cm] 
-     {images/mvc.png}
-    \caption{Architecture MVC }
-    
-\end{figure} 
-\subsubsection{\textbf{Architecture MVC}(Model View Controller)}
-
-
-\begin{itemize}
-\medskip
-    \item[$\bullet$] \textbf{Model:}
-    \\
-    Le modèle représente la forme des données et la logique métier. Il maintient les 
-données de l'application. Les objets de modèle récupèrent et stockent l'état du 
-modèle dans une base de données. Le modèle est une donnée et une logique métier.
-    \medskip
-
-    \item[$\bullet$] \textbf{View :}
-    \\
-    View ou Vue est une interface utilisateur. Afficher les données d'affichage en 
-utilisant le modèle pour l'utilisateur et leur permet également de modifier les 
-données. La vue est une interface utilisateur. 
-    
-    \medskip
-
-    \item[$\bullet$] \textbf{Controller :}
-   \\
-    Le contrôleur gère la demande de l'utilisateur. En règle générale, l'utilisateur 
-interagit avec la Vue, ce qui déclenche à son tour la demande d'URL appropriée. 
-Cette demande sera gérée par un contrôleur. Le contrôleur rend la vue appropriée 
-avec les données du modèle en réponse. Le contrôleur est un gestionnaire de 
-demandes\cite{Architecture}.
-\end{itemize}
-\clearpage
-\section{Enchaînement des interfaces}
-Cette partie est principalement dédiée à la présentation de quelques écrans de la solution xxxxx pour comprendre visuellement l'idée du projet
-\\
-Commençons par présenter l'interface d'acceuil :
-\\
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=16cm, height=10cm]{images/A.png}
-    \caption{ Interface AAAAA }
-   
-\end{figure}
-
-cette interface présente Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface .
-\clearpage 
-
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=16cm, height=10cm]{images/B.png}
-    \caption{ Interface de BB }
-   \label{fig}
-\end{figure}
-\medskip
-Cette interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface  comme présente l'interface suivante: 
-\\
-\clearpage
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=16cm, height=10cm]{images/DD.png}
-    \caption{ DDDDDDDDDD }
-   \label{fig}
-\end{figure}
-\medskip
-Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface  comme l'indique la figure suivante:
-
-
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=14cm, height=8cm]{images/C.png}
-    \caption{ Interface CCCCC }
-   \label{fig}
-\end{figure}
-
-Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface Description de l'interface  comme l'indique la figure suivante:
-
-
-\section*{Conclusion}
-\addcontentsline{toc}{section}{Conclusion}
-
-En conclusion, le chapitre consacré à la réalisation du projet decrire votre projet decrire votre projet decrire votre projet decrire votre projet. Ce chapitre illustre ainsi la valeur ajoutée de decrire votre projetdecrire votre projetdecrire votre projetdecrire votre projet.
-
-
-

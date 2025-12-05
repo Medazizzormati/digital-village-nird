@@ -1,157 +1,192 @@
-\chapter{Analyse et spécification des besoins}
-\label{sec:unchapitre}
-\fancyhead{} % clear all header fields
+\chapter{Analyse des besoins}
+\label{chap:analyse}
 
-\fancyhead[RO,LE]{\textbf{Analyse et spécification des besoins}}
+\section{Introduction}
 
-\fancyfoot{} % clear all footer fields
-\clearpage
-\fancyfoot[LE,RO]{\thepage}
-\section*{Introduction} 
-\addcontentsline{toc}{section}{Introduction}
-Le travail qui nous a été confié pendant notre stage consiste à décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet décrire votre sujet. 
-
-Pour ce faire, il est indispensable de réaliser une analyse générale. En premier temps, nous 
-allons dégager tous les besoins fonctionnels ainsi que les besoins non fonctionnels. Ensuite, nous allons détailler la branche supérieure concernant la modélisation des cas d'utilisation après avoir identifié les acteurs.
-
+Ce chapitre est consacré à l'analyse fonctionnelle et technique du projet Digital Village. Nous identifierons les différents acteurs du système, leurs besoins, puis nous présenterons les cas d'utilisation et les exigences fonctionnelles.
 
 \section{Identification des acteurs}
 
-Certains des principaux acteurs sont impliqués dans un système qui aide le personnel de l'administration à numériser ses documents à l'aide d'un scanner. Les interactions et collaborations entre ces acteurs permettent une numérisation et une gestion efficiente et efficace des documents.
-\\
-\begin{itemize}
+Notre plateforme s'adresse à plusieurs types d'utilisateurs :
 
-\item[$\bullet$] \textbf{Acteur 1 }
-\\
-Description du rôle de l'acteur 1, ses privilèges , il gère la tache X , il fait la tache Y. 
-\medskip
-\item[$\bullet$] \textbf{Acteur 2 } 
-\\
-Description du rôle de l'acteur 2, ses privilèges , il gère la tache X , il fait la tache Y. 
-\medskip
-\item[$\bullet$] \textbf{Acteur 3 }
-\\
-Description du rôle de l'acteur 3, ses privilèges , il gère la tache X , il fait la tache Y. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Acteur} & \textbf{Description} \\
+\hline
+Visiteur & Utilisateur non authentifié qui découvre la plateforme \\
+\hline
+Élève (Student) & Apprenant qui suit le parcours NIRD et passe les quiz \\
+\hline
+Enseignant (Teacher) & Formateur qui gère ses classes et suit la progression \\
+\hline
+Administrateur & Gestionnaire de la plateforme et des utilisateurs \\
+\hline
+Super Admin & Accès complet à toutes les fonctionnalités \\
+\hline
+\end{tabular}
+\caption{Acteurs du système}
+\end{table}
+
+\section{Besoins fonctionnels}
+
+\subsection{Besoins du visiteur}
+\begin{itemize}
+    \item Consulter la page d'accueil et découvrir NIRD
+    \item Accéder aux ressources publiques
+    \item S'inscrire sur la plateforme
+    \item Se connecter à son compte
 \end{itemize}
 
-\section{Spécification des besoins }
-
-\subsection{Besoins fonctionnels }
-Dans cette partie , nous allons détailler les besoins fonctionnels de notre projet a savoir : 
-
+\subsection{Besoins de l'élève}
 \begin{itemize}
-\item[$\bullet$] \textbf{Besoin fonctionnel N1} 
-\medskip
-\\
-Cette fonctionnalité implique la possibilité de some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text .
-\\
-\item[$\bullet$] \textbf{Besoin fonctionnel N2} 
-\medskip
-\\
-Cette fonctionnalité implique la possibilité de some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text .
-\\
-\item[$\bullet$] \textbf{Besoin fonctionnel N3} 
-\medskip
-\\
-Cette fonctionnalité implique la possibilité de some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text .
-\\
-\item[$\bullet$] \textbf{Besoin fonctionnel N4} 
-\medskip
-\\
-Cette fonctionnalité implique la possibilité de some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text .
-\\
- \end{itemize}
-
-\subsection{Besoins non fonctionnels }
-Les besoins non fonctionnels, également appelés exigences non fonctionnelles, jouent un rôle crucial dans le développement et la réussite de la solution. Contrairement aux besoins fonctionnels qui décrivent les fonctionnalités spécifiques que l'application doit offrir, les besoins non fonctionnels concernent les aspects de performance, de sécurité, d'expérience utilisateur et d'autres qualités globales de l'application. 
-
-
-\subsubsection{ Sécurité }
-Chaque utilisateur, pour accéder à l'application, est obligé de s'identifier par un nom d'utilisateur et un mot de passe. Il ne pourra accéder qu'aux pages qui lui sont permises par son profil ou les droits d'accés qui lui sont affectés par l'administrateur.
-
-\begin{itemize}
-   \item \textit{ Besoins de mot de passe, longueur, caractères spéciaux, expiration, politique de 
-réutilisation.}
-
-\medskip
-   \item \textit{  Déconnexion après temps mort d'inactivité, durées, actions.}
+    \item Suivre le parcours NIRD en 5 étapes
+    \item Passer des quiz et gagner des points XP
+    \item Consulter son tableau de bord (progression, badges, niveau)
+    \item Accéder à la bibliothèque de ressources
+    \item Rejoindre une classe (code d'invitation)
+    \item Modifier son profil
 \end{itemize}
-\subsubsection{Disponibilité }
-Il est indispensable que l'application soit disponible à tout moment 24/24, 7/7 sauf 
-période de maintenance.
-Il est aussi indispensable que les données soient disponibles même en périodes de fortes activités.
-\subsubsection{ Performance }
-Une application doit être avant tout performante. En d'autres termes, via ses 
-fonctionnalités, elle se doit de répondre à toutes les exigences des utilisateurs et surtout celle qui représente l'une des fonctionnalités qui avantage notre application par rapport au marché à 
-savoir la recherche et ceci d'une manière optimale et dans un délai précis.
 
+\subsection{Besoins de l'enseignant}
+\begin{itemize}
+    \item Créer et gérer des classes
+    \item Inviter des élèves dans ses classes
+    \item Suivre la progression de ses élèves
+    \item Consulter les statistiques de sa classe
+    \item Exporter les données de progression
+\end{itemize}
 
-\subsubsection{L’ergonomie et la convivialité}
-La plateforme doit fournir des interfaces 
-compréhensibles, simples, conviviales et exploitables par l’utilisateur. Les 
-informations doivent être présentées d’une façon lisible, facile et rapidement 
-accessible.
+\subsection{Besoins de l'administrateur}
+\begin{itemize}
+    \item Gérer les utilisateurs (CRUD)
+    \item Modifier les rôles des utilisateurs
+    \item Consulter les statistiques globales
+    \item Superviser l'activité de la plateforme
+\end{itemize}
 
+\section{Besoins non fonctionnels}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\rowcolor{Gray}
+\textbf{Exigence} & \textbf{Description} \\
+\hline
+Performance & Temps de réponse < 2 secondes \\
+\hline
+Sécurité & Authentification JWT, mots de passe hashés (bcrypt) \\
+\hline
+Accessibilité & Interface responsive, compatible mobile \\
+\hline
+Disponibilité & Application déployée sur Vercel (99.9\% uptime) \\
+\hline
+Maintenabilité & Code modulaire, documentation complète \\
+\hline
+Scalabilité & Architecture permettant la montée en charge \\
+\hline
+\end{tabular}
+\caption{Exigences non fonctionnelles}
+\end{table}
 
-\section{Diagramme des cas d'utilisation général }
-Dans cette partie nous allons décrire les besoins fonctionnels a l'aide d'un diagramme des cas d'utilisations comme indique la figure ci dessous.
-\\
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=6cm, height=6cm] {images/chap2 Methode2}
- \caption{Besoins fonctionnels à travers le Diagramme des cas d'utilisations}
-\label{fig:use case global}
+\section{Cas d'utilisation}
+
+\subsection{Diagramme de cas d'utilisation global}
+
+Le diagramme suivant présente les principales fonctionnalités accessibles à chaque acteur :
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{12cm}{
+\textbf{Cas d'utilisation - Digital Village}
+\vspace{0.5cm}
+
+\textbf{Visiteur :}
+\begin{itemize}
+    \item Consulter l'accueil
+    \item S'inscrire
+    \item Se connecter
+\end{itemize}
+
+\textbf{Élève :}
+\begin{itemize}
+    \item Suivre le parcours NIRD
+    \item Passer les quiz
+    \item Consulter le dashboard
+    \item Gérer son profil
+\end{itemize}
+
+\textbf{Enseignant :}
+\begin{itemize}
+    \item Gérer les classes
+    \item Suivre les élèves
+    \item Exporter les données
+\end{itemize}
+
+\textbf{Administrateur :}
+\begin{itemize}
+    \item Gérer les utilisateurs
+    \item Consulter les statistiques
+    \item Superviser la plateforme
+\end{itemize}
+}}
+\caption{Cas d'utilisation globaux}
 \end{figure}
-\\
 
-Le diagramme des  cas d'utilisations ci dessous  illustre les interactions entre les acteurs X , Y . some text some text some text some text some text some text some text some text some text some text some text some text some text some text.
-\\
+\subsection{Description des cas d'utilisation principaux}
+
+\subsubsection{CU01 : S'inscrire}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\textbf{Nom} & S'inscrire \\
+\hline
+\textbf{Acteur} & Visiteur \\
+\hline
+\textbf{Précondition} & L'utilisateur n'a pas de compte \\
+\hline
+\textbf{Scénario principal} & 
+1. L'utilisateur accède à la page d'inscription \newline
+2. Il remplit le formulaire (nom, email, mot de passe, rôle) \newline
+3. Il valide le formulaire \newline
+4. Le système crée le compte et redirige vers le dashboard \\
+\hline
+\textbf{Postcondition} & Le compte est créé, l'utilisateur reçoit 100 XP de bonus \\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation : S'inscrire}
+\end{table}
+
+\subsubsection{CU02 : Passer un quiz}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\textbf{Nom} & Passer un quiz \\
+\hline
+\textbf{Acteur} & Élève (authentifié) \\
+\hline
+\textbf{Précondition} & L'utilisateur est connecté \\
+\hline
+\textbf{Scénario principal} & 
+1. L'utilisateur choisit un sujet de quiz \newline
+2. Il sélectionne la difficulté et le nombre de questions \newline
+3. Le système génère les questions (IA ou fallback) \newline
+4. L'utilisateur répond aux questions \newline
+5. Le système affiche le score et les explications \\
+\hline
+\textbf{Postcondition} & Le score est enregistré, XP attribués \\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation : Passer un quiz}
+\end{table}
+
+\section{Conclusion}
+
+Ce chapitre a permis d'identifier les acteurs, leurs besoins et les principales fonctionnalités de la plateforme. Le chapitre suivant présentera la conception technique et les diagrammes UML détaillés.
+
 \clearpage
-
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=18cm ]{images/global.png}
-  \caption{Diagramme de cas d'utilisation global}
-  \label{fig:use case global}
-\end{figure}
-\medskip
-
-\section{Conception de l'interface Utilisateur }
-Cette étape consiste à comprendre le contexte du 
-système a l'aide de conception des interfaces ou Wireframing.
-
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=6cm, height=6cm] 
-     {images/chap2 Methode1.png}
-    \caption{ Besoins fonctionnels à travers des maquettes}
-  \label{fig:logo-sqli}
-\end{figure}
-\\
-\\
-
-\begin{itemize}
-   \item \textit{\textbf{Interface d'authentification }} some text  some text  some text  some text  some text  some text  some text  some text  some text  .
- 
-\begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=10cm, height=6cm] 
-     {images/auth.png}
-    \caption{ Maquette de l'interface d'ajout d'un compte manager}
-  \label{fig:logo-sqli}
-\end{figure}
-   \item \textit{\textbf{Tache 2}} some text  some text  some text  some text  some text  some text  some text  some text  text  some text  some text  some text  some text.   
-   \begin{figure}[hbt!]
-   \centering
-   \includegraphics[width=12cm, height=6cm] 
-     {images/FORM3.png}
-    \caption{ Maquette de l'interface d'ajout d'un compte manager}
-  \label{fig:logo-sqli}
-\end{figure}
- \end{itemize}
- 
-\section*{Conclusion}
-\addcontentsline{toc}{section}{Conclusion}
-Ce chapitre a été consacré pour présenter les exigences fonctionnelles et les exigences non fonctionnelles de notre application. Notre solution de numérisation peut transformer les documents administratifs en documents numériques, en optimisant l'efficacité opérationnelle, en améliorant l'accessibilité aux informations et en renforçant la sécurité des données. Nous avons ensuite identifié les acteurs intervenant dans ce projet et en fin nous avons présenté le diagramme de cas d’utilisation global.
-Dans le chapitre suivant, on va mettre l'accent sur l’étude conceptuelle de l’application.
