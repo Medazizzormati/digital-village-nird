@@ -41,8 +41,10 @@ export default function SignupPage() {
       return
     }
 
-    if (formData.password.length < 6) {
-      setError("Le mot de passe doit contenir au moins 6 caractères")
+    // Validation du mot de passe : au moins 8 caractères, majuscule, minuscule, chiffre et caractère spécial
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()_+=\-\[\]{};':",./<>?|`~])[A-Za-z\d@$!%*?&#^()_+=\-\[\]{};':",./<>?|`~]{8,}$/
+    if (!passwordRegex.test(formData.password)) {
+      setError("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial")
       setLoading(false)
       return
     }

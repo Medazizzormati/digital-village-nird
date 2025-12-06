@@ -128,7 +128,7 @@ public class AuthService {
 
     private Map<String, Object> formatUserResponse(User user) {
         Map<String, Object> response = new HashMap<>();
-        response.put("id", user.getId());
+        response.put("id", user.getId() != null ? user.getId().toString() : null);
         response.put("name", user.getName());
         response.put("email", user.getEmail());
         response.put("role", user.getRole().getValue());

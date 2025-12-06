@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface ClassRepository extends JpaRepository<ClassEntity, Long> {
+public interface ClassRepository extends JpaRepository<ClassEntity, UUID> {
     List<ClassEntity> findByTeacher(User teacher);
     Optional<ClassEntity> findByCode(String code);
     List<ClassEntity> findByTeacherAndIsActive(User teacher, Boolean isActive);

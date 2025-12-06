@@ -35,4 +35,15 @@ build/
 ### Environment ###
 .env
 *.log
+*.env
+*.env.local
+*.env.production
 
+### Security - Ne pas commiter les credentials ###
+*_CREDENTIALS.md
+*_PASSWORD.md
+*_SECRETS.md
+VOS_VARIABLES_ENV.md
+CONFIGURATION_RAPIDE.md
+VERIFICATION.md
+render.yaml

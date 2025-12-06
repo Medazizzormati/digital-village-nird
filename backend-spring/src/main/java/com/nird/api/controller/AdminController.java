@@ -72,7 +72,7 @@ public class AdminController {
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getUserById(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getUserById(@PathVariable java.util.UUID id) {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
         return ResponseEntity.ok(ApiResponse.success(formatUserResponse(user)));
@@ -102,7 +102,7 @@ public class AdminController {
 
     private Map<String, Object> formatUserResponse(User user) {
         Map<String, Object> response = new HashMap<>();
-        response.put("id", user.getId());
+        response.put("id", user.getId() != null ? user.getId().toString() : null);
         response.put("name", user.getName());
         response.put("email", user.getEmail());
         response.put("role", user.getRole().getValue());

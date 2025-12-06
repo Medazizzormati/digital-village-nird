@@ -60,7 +60,7 @@ public class TeacherController {
 
     @GetMapping("/classes/{id}")
     public ResponseEntity<ApiResponse<ClassEntity>> getClassById(
-            @PathVariable Long id, Authentication authentication) {
+            @PathVariable java.util.UUID id, Authentication authentication) {
         User teacher = (User) authentication.getPrincipal();
         teacher = userRepository.findById(teacher.getId()).orElseThrow();
 

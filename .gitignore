@@ -18,6 +18,21 @@ dist/
 .env.test.local
 .env.production.local
 backend/.env
+backend-spring/.env
+
+# Render configuration files (may contain sensitive data)
+**/render.yaml
+backend/render.yaml
+backend-spring/render.yaml
+*.render.yaml
+
+# Security - Files with credentials
+*_CREDENTIALS.md
+*_PASSWORD.md
+*_SECRETS.md
+*VERIFICATION.md
+*CONFIGURATION_RAPIDE.md
+*VOS_VARIABLES_ENV.md
 
 # Debug
 npm-debug.log*

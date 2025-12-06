@@ -1,6 +1,7 @@
 package com.nird.api.dto;
 
 import com.nird.api.model.Role;
+import com.nird.api.validation.ValidPassword;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,7 +18,7 @@ public class RegisterRequest {
     private String email;
 
     @NotBlank(message = "Le mot de passe est requis")
-    @Size(min = 6, message = "Le mot de passe doit contenir au moins 6 caractères")
+    @ValidPassword
     private String password;
 
     private Role role = Role.PUBLIC;
