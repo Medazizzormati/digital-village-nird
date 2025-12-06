@@ -155,11 +155,11 @@ Projet réalisé par l'équipe **Digital Village** :
 |-----|------|
 | **Mohammed Aziz** | Développeur Full-Stack |
 | **Mohamed Chaouki** | Développeur Frontend |
-| **Yassine Zormati** | Développeur Backend |
+| **Yassine Zormati** | Documentation |
 | **Firas Garraoui** | UI/UX Designer |
 | **Amin Masri** | Développeur Frontend |
 | **Yassine Ajroud** | Développeur Backend |
-| **Majdn Khmaja** | Documentation |
+| **Majn Khmaja** | Développeur Backend  |
 | **Ali Mahjoub** | Tests & QA |
 
 ## 📄 Licence
