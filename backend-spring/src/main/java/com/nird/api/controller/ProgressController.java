@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @RestController
 @RequestMapping("/api/progress")
@@ -130,17 +131,20 @@ public class ProgressController {
             @RequestParam(defaultValue = "10") Integer limit) {
         List<User> users = userRepository.findTopByOrderByXpDesc(PageRequest.of(0, limit));
 
-        List<Map<String, Object>> leaderboard = users.stream().map((user, index) -> {
-            Map<String, Object> entry = new HashMap<>();
-            entry.put("rank", index + 1);
-            entry.put("name", user.getName());
-            entry.put("role", user.getRole().getValue());
-            entry.put("xp", user.getXp());
-            entry.put("level", user.getLevel());
-            entry.put("badgeCount", user.getBadges().size());
-            entry.put("completedSteps", user.getCompletedSteps().size());
-            return entry;
-        }).collect(Collectors.toList());
+        List<Map<String, Object>> leaderboard = IntStream.range(0, users.size())
+                .mapToObj(index -> {
+                    User user = users.get(index);
+                    Map<String, Object> entry = new HashMap<>();
+                    entry.put("rank", index + 1);
+                    entry.put("name", user.getName());
+                    entry.put("role", user.getRole().getValue());
+                    entry.put("xp", user.getXp());
+                    entry.put("level", user.getLevel());
+                    entry.put("badgeCount", user.getBadges().size());
+                    entry.put("completedSteps", user.getCompletedSteps().size());
+                    return entry;
+                })
+                .collect(Collectors.toList());
 
         return ResponseEntity.ok(ApiResponse.success(leaderboard));
     }
