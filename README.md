@@ -159,7 +159,7 @@ Projet réalisé par l'équipe **Digital Village** :
 | **Firas Garraoui** | UI/UX Designer |
 | **Amin Masri** | Développeur Frontend |
 | **Yassine Ajroud** | Développeur Backend |
-| **Majn Khmaja** | Développeur Backend  |
+| **Majd Khmaja** | Développeur Backend  |
 | **Ali Mahjoub** | Tests & QA |
 
 ## 📄 Licence
