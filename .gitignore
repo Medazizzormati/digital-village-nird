@@ -34,6 +34,17 @@ backend-spring/render.yaml
 *CONFIGURATION_RAPIDE.md
 *VOS_VARIABLES_ENV.md
 
+# Documentation files (keep locally, don't push to GitHub)
+CONFIGURER_*.md
+CORRECTION_*.md
+CORRIGER_*.md
+DEPLOYER_*.md
+INTEGRER_*.md
+POST_LINKEDIN*.md
+POST_LINKEDIN*.txt
+VERIFIER_*.md
+VERIFIER_DOCKER_TOKEN.md
+
 # Debug
 npm-debug.log*
 yarn-debug.log*

@@ -4,6 +4,7 @@ import type React from "react"
 import { Analytics } from "@vercel/analytics/next"
 import { useState, useEffect } from "react"
 import type { Cairo, Poppins } from "next/font/google"
+import { Protection } from "@/components/protection"
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -33,6 +34,7 @@ export function ClientLayout({ children, cairoFont, poppinsFont }: ClientLayoutP
       <body
         className={`${poppinsFont.className} ${cairoFont.className} font-sans antialiased bg-background text-foreground`}
       >
+        <Protection />
         {mounted && children}
         <Analytics />
       </body>
