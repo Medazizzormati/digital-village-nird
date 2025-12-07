@@ -1069,8 +1069,23 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
             throw new Error("No response from OpenAI")
         }
 
-        // Parse the JSON response
-        const data = JSON.parse(responseText)
+        // Parse the JSON response (extract JSON even if wrapped in markdown code blocks)
+        let jsonText = responseText.trim()
+        
+        // Remove markdown code blocks if present
+        if (jsonText.startsWith("```json")) {
+            jsonText = jsonText.replace(/^```json\s*/, "").replace(/\s*```$/, "")
+        } else if (jsonText.startsWith("```")) {
+            jsonText = jsonText.replace(/^```\s*/, "").replace(/\s*```$/, "")
+        }
+        
+        // Try to extract JSON object if there's extra text
+        const jsonMatch = jsonText.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+            jsonText = jsonMatch[0]
+        }
+        
+        const data = JSON.parse(jsonText)
 
         return NextResponse.json(data)
     } catch (error) {
