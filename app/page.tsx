@@ -5,9 +5,13 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ArrowRight, Zap, Shield, Leaf, Trophy, Star, Gamepad2 } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/hooks/useLanguage"
+import { useTranslations } from "@/lib/translations"
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
+  const { language } = useLanguage()
+  const t = useTranslations(language)
 
   useEffect(() => {
     setMounted(true)
@@ -15,22 +19,22 @@ export default function Home() {
 
   const cards = [
     {
-      title: "Pourquoi NIRD ?",
-      description: "Une approche holistique pour transformer le numérique en ressource inclusive et durable.",
+      title: t.whyNIRD,
+      description: t.whyNIRDDesc,
       icon: Zap,
       color: "from-cyan-500 to-blue-500",
       delay: 0,
     },
     {
-      title: "Les avantages",
-      description: "Résilience, maîtrise technologique et sobriété numérique pour tous.",
+      title: t.advantages,
+      description: t.advantagesDesc,
       icon: Star,
       color: "from-emerald-500 to-teal-500",
       delay: 100,
     },
     {
-      title: "Les étapes",
-      description: "Une démarche claire, progressive et accessible pour débuter.",
+      title: t.theSteps,
+      description: t.theStepsDesc,
       icon: Trophy,
       color: "from-purple-500 to-pink-500",
       delay: 200,
@@ -38,9 +42,9 @@ export default function Home() {
   ]
 
   const stats = [
-    { value: "5", label: "Étapes", icon: "🎯" },
-    { value: "50+", label: "Questions", icon: "❓" },
-    { value: "∞", label: "Possibilités", icon: "🚀" },
+    { value: "5", label: t.stats.steps, icon: "🎯" },
+    { value: "50+", label: t.stats.questions, icon: "❓" },
+    { value: "∞", label: t.stats.possibilities, icon: "🚀" },
   ]
 
   return (
@@ -100,7 +104,7 @@ export default function Home() {
               className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-medium"
               style={{ animation: 'slideUp 0.8s ease-out 0.4s both' }}
             >
-              Comprendre et appliquer la démarche <span className="text-primary font-bold">NIRD</span> facilement
+              {t.heroSubtitleText.replace("NIRD", `<span class="text-primary font-bold">NIRD</span>`)}
             </p>
 
             {/* CTA Buttons */}
@@ -112,14 +116,14 @@ export default function Home() {
                 href="/about"
                 className="game-btn inline-flex items-center gap-2 rounded-xl text-primary-foreground"
               >
-                Commencer <ArrowRight className="w-5 h-5" />
+                {t.getStarted} <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/quiz"
                 className="group inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-foreground border-2 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all"
               >
                 <Trophy className="w-5 h-5 text-yellow-500" />
-                Quiz NIRD
+                {t.quizNIRD}
                 <span className="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded-full">5 Stages</span>
               </Link>
             </div>
@@ -152,10 +156,10 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-4">
-                Découvrez les <span className="gradient-text">3 piliers</span> de NIRD
+                {t.discoverPillars.replace("3 piliers", `<span class="gradient-text">3 piliers</span>`)}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Une approche complète pour une transformation numérique réussie
+                {t.discoverPillarsDesc}
               </p>
             </div>
 
@@ -194,9 +198,9 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {[
-                { icon: Shield, title: "Inclusion", desc: "Accès égal aux technologies pour tous", color: "cyan", emoji: "👥" },
-                { icon: Zap, title: "Responsabilité", desc: "Protection des données et gouvernance transparente", color: "emerald", emoji: "🛡️" },
-                { icon: Leaf, title: "Durabilité", desc: "Sobriété numérique et respect de l'environnement", color: "purple", emoji: "🌱" },
+                { icon: Shield, title: t.inclusionTitle, desc: t.inclusionShort, color: "cyan", emoji: "👥" },
+                { icon: Zap, title: t.responsibilityTitle, desc: t.responsibilityShort, color: "emerald", emoji: "🛡️" },
+                { icon: Leaf, title: t.sustainabilityTitle, desc: t.sustainabilityShort, color: "purple", emoji: "🌱" },
               ].map((pillar, idx) => (
                 <div
                   key={idx}
@@ -225,17 +229,17 @@ export default function Home() {
               <span className="level-badge">Niveau 1 • Débutant</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-6">
-              Prêt à commencer votre <span className="gradient-text">transformation</span> ?
+              {t.readyToStart.replace("transformation", `<span class="gradient-text">transformation</span>`)}
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Explorez la démarche NIRD en 5 étapes simples et gagnez des badges en progressant !
+              {t.readyToStartDesc}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link
                 href="/steps"
                 className="game-btn inline-flex items-center gap-2 rounded-xl text-primary-foreground"
               >
-                Voir la démarche <ArrowRight className="w-5 h-5" />
+                {t.seeSteps} <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/ai-quiz"

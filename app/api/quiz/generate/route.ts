@@ -996,7 +996,7 @@ function generateFallbackQuestions(topic: string, count: number) {
 }
 
 export async function POST(request: NextRequest) {
-    let body: { topic?: string; difficulty?: string; count?: number } = {}
+    let body: { topic?: string; difficulty?: string; count?: number; language?: string } = {}
     
     try {
         body = await request.json()
@@ -1004,13 +1004,15 @@ export async function POST(request: NextRequest) {
         body = { topic: "NIRD", count: 5 }
     }
 
-    const { topic = "NIRD", difficulty = "medium", count = 5 } = body
+    const { topic = "NIRD", difficulty = "medium", count = 5, language = "fr" } = body
+    const isArabic = language === "ar"
 
     try {
         // Vérifier si OpenAI est configuré
         if (!process.env.OPENAI_API_KEY) {
             console.log("OpenAI API key not configured, using fallback questions")
             const questions = generateFallbackQuestions(topic, count)
+            // Note: Les questions de fallback sont en français uniquement pour l'instant
             return NextResponse.json({ questions })
         }
 
@@ -1020,7 +1022,34 @@ export async function POST(request: NextRequest) {
             apiKey: process.env.OPENAI_API_KEY,
         })
 
-        const prompt = `Génère ${count} questions de quiz sur le thème NIRD (Numérique Inclusif, Responsable et Durable) avec le sujet spécifique: "${topic}".
+        const prompt = isArabic 
+            ? `أنشئ ${count} أسئلة اختبار حول موضوع NIRD (الرقمي الشامل والمسؤول والمستدام) مع الموضوع المحدد: "${topic}".
+
+مستوى الصعوبة: ${difficulty}
+
+لكل سؤال، قدم:
+1. السؤال
+2. 4 خيارات إجابة (أ، ب، ج، د)
+3. فهرس الإجابة الصحيحة (0-3)
+4. شرح مفصل للإجابة
+
+سياق NIRD:
+- الرقمي الشامل: وصول متساوٍ للتكنولوجيا للجميع
+- المسؤول: حماية البيانات، الأمان، الحوكمة الشفافة
+- المستدام: الاعتدال الرقمي، إعادة استخدام المعدات، البرمجيات الحرة (Linux)
+
+أجب فقط بصيغة JSON صالحة بهذا التنسيق الدقيق:
+{
+  "questions": [
+    {
+      "question": "السؤال هنا؟",
+      "options": ["الخيار أ", "الخيار ب", "الخيار ج", "الخيار د"],
+      "correctAnswer": 0,
+      "explanation": "شرح مفصل"
+    }
+  ]
+}`
+            : `Génère ${count} questions de quiz sur le thème NIRD (Numérique Inclusif, Responsable et Durable) avec le sujet spécifique: "${topic}".
 
 Niveau de difficulté: ${difficulty}
 
@@ -1052,8 +1081,9 @@ Réponds UNIQUEMENT avec un JSON valide dans ce format exact:
             messages: [
                 {
                     role: "system",
-                    content:
-                        "Tu es un expert en NIRD (Numérique Inclusif, Responsable et Durable). Tu crées des questions de quiz éducatives et pertinentes. Réponds UNIQUEMENT avec du JSON valide, sans texte supplémentaire.",
+                    content: isArabic
+                        ? "أنت خبير في NIRD (الرقمي الشامل والمسؤول والمستدام). تقوم بإنشاء أسئلة اختبار تعليمية وذات صلة. أجب فقط بصيغة JSON صالحة، بدون نص إضافي."
+                        : "Tu es un expert en NIRD (Numérique Inclusif, Responsable et Durable). Tu crées des questions de quiz éducatives et pertinentes. Réponds UNIQUEMENT avec du JSON valide, sans texte supplémentaire.",
                 },
                 {
                     role: "user",

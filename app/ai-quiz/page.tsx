@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Loader2, Sparkles, CheckCircle2, XCircle, Monitor, Shield, Leaf, BookOpen, Users, Lock, Cpu, Wrench } from "lucide-react"
@@ -34,6 +34,31 @@ export default function AIQuizPage() {
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
     const [answered, setAnswered] = useState(false)
     const [score, setScore] = useState(0)
+    const [language, setLanguage] = useState<"fr" | "ar">("fr")
+
+    useEffect(() => {
+        const savedLanguage = localStorage.getItem("language") as "fr" | "ar" | null
+        if (savedLanguage) {
+            setLanguage(savedLanguage)
+        }
+
+        // Écouter les changements de langue
+        const handleLanguageChange = () => {
+            const newLanguage = localStorage.getItem("language") as "fr" | "ar" | null
+            if (newLanguage) {
+                setLanguage(newLanguage)
+            }
+        }
+
+        window.addEventListener("storage", handleLanguageChange)
+        // Écouter aussi les changements dans la même fenêtre (via custom event)
+        window.addEventListener("languagechange", handleLanguageChange as EventListener)
+
+        return () => {
+            window.removeEventListener("storage", handleLanguageChange)
+            window.removeEventListener("languagechange", handleLanguageChange as EventListener)
+        }
+    }, [])
 
     const handleGenerate = async () => {
         if (!topic.trim()) {
@@ -51,7 +76,7 @@ export default function AIQuizPage() {
             const response = await fetch("/api/quiz/generate", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ topic, difficulty, count }),
+                body: JSON.stringify({ topic, difficulty, count, language }),
             })
 
             if (!response.ok) {
