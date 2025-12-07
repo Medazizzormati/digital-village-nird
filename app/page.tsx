@@ -103,9 +103,8 @@ export default function Home() {
             <p 
               className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-medium"
               style={{ animation: 'slideUp 0.8s ease-out 0.4s both' }}
-            >
-              {t.heroSubtitleText.replace("NIRD", `<span class="text-primary font-bold">NIRD</span>`)}
-            </p>
+              dangerouslySetInnerHTML={{ __html: t.heroSubtitleText.replace("NIRD", `<span class="text-primary font-bold">NIRD</span>`) }}
+            />
 
             {/* CTA Buttons */}
             <div 
@@ -155,9 +154,10 @@ export default function Home() {
         <section className="py-24 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-4">
-                {t.discoverPillars.replace("3 piliers", `<span class="gradient-text">3 piliers</span>`)}
-              </h2>
+              <h2 
+                className="text-4xl sm:text-5xl font-black text-foreground mb-4"
+                dangerouslySetInnerHTML={{ __html: t.discoverPillars.replace("3 piliers", `<span class="gradient-text">3 piliers</span>`) }}
+              />
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 {t.discoverPillarsDesc}
               </p>
@@ -228,9 +228,10 @@ export default function Home() {
             <div className="inline-block mb-6">
               <span className="level-badge">Niveau 1 • Débutant</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-6">
-              {t.readyToStart.replace("transformation", `<span class="gradient-text">transformation</span>`)}
-            </h2>
+            <h2 
+              className="text-4xl sm:text-5xl font-black text-foreground mb-6"
+              dangerouslySetInnerHTML={{ __html: t.readyToStart.replace("transformation", `<span class="gradient-text">transformation</span>`) }}
+            />
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               {t.readyToStartDesc}
             </p>
