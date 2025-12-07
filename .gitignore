@@ -35,10 +35,19 @@ backend-spring/render.yaml
 *VOS_VARIABLES_ENV.md
 
 # Documentation files (keep locally, don't push to GitHub)
+# Ignore all .md files except README.md
+*.md
+!README.md
+!**/README.md
+# Explicit list for clarity
 CONFIGURER_*.md
+CONFIGURER_FRONTEND_BACKEND.md
+CONFIGURER_RENDER_DOCKER.md
 CORRECTION_*.md
 CORRIGER_*.md
+CORRIGER_ERREUR_SRC_NOT_FOUND.md
 DEPLOYER_*.md
+DEPLOYER_BACKEND.md
 INTEGRER_*.md
 POST_LINKEDIN*.md
 POST_LINKEDIN*.txt
